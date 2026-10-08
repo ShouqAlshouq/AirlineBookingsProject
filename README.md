@@ -150,7 +150,7 @@ AirlineBookingsProject/                 ← repo root
 - **LocalDB only by default** — see *Requirements* for other SQL Server setups.
 
 ## Team
-
+- **Shouq Alshouq**
 - **Dhoha Alhammadi**
 
 *Course project — CIA 4103.*
