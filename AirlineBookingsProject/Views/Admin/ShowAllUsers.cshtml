@@ -1,0 +1,18 @@
+﻿@model List<User>
+
+@{
+    ViewData["Title"] = "All Users";
+}
+
+<h1>All Users</h1>
+
+@foreach (var user in Model)
+{
+    <img src=/images/@user.UserPhoto style="float:left;width:50px; margin-right:5px" />
+    <h2>@user.FullName</h2>
+    <p>User ID: @user.Id</p>
+    <p>Phone Number: @user.PhoneNumber</p>
+    <p>Email: @user.Email</p>
+    <p>Role: @user.Role</p>
+    <hr />
+}

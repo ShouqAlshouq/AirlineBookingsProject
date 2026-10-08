@@ -1,0 +1,61 @@
+﻿@model Flight
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Book Flight";
+}
+<h2>Book Flight</h2>
+
+<form asp-action="BookFlight" method="post">
+
+    <input type="hidden" name="booking.FlightId" value="@Model.FlightId" />
+    <input type="hidden" name="booking.BookingDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+    <input type="hidden" name="booking.Status" value="Confirmed" />
+
+    <hr>
+    <h4>Flight Details</h4>
+    <p><strong>@Model.FlightNo</strong> | @Model.FromCity → @Model.ToCity</p>
+    <p>Date: @Model.Date.ToShortDateString()</p>
+    <p>Price: @Model.Price</p>
+
+    <hr />
+
+    <h4>Passenger Information</h4>
+
+    <div class="mb-3">
+        <label>Full Name</label>
+        <input name="passenger.FullName" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label>Passport Number</label>
+        <input name="passenger.PassportNo" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label>Nationality</label>
+        <input name="passenger.Nationality" class="form-control" required />
+    </div>
+
+    <hr />
+
+    <h4>Payment</h4>
+
+    <div class="mb-3">
+        <label>Amount</label>
+        <input name="payment.Amount" value="@Model.Price" class="form-control" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label>Payment Method</label>
+        <select name="payment.Method" class="form-control">
+            <option value="">-- Select Method --</option>
+            <option value="Card">Card</option>
+            <option value="Cash">Cash</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Confirm Booking</button>
+
+</form>

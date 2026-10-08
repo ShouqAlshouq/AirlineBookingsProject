@@ -1,0 +1,17 @@
+﻿@model List<Flight>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "All Flights";
+}
+@foreach (var flight in Model)
+{
+    <h2>Flight No: @flight.FlightNo</h2>
+    <p>From: @flight.FromCity</p>
+    <p>To: @flight.ToCity</p>
+    <p>Date: @flight.Date.ToShortDateString()</p>
+    <p>Time: @flight.Time</p>
+    <p>Price: @flight.Price AED</p>
+    <hr />
+}

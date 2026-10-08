@@ -1,0 +1,65 @@
+﻿@model List<Booking>
+@{
+    ViewData["Title"] = "My Bookings";
+}
+<h2>My Bookings</h2>
+
+@foreach (var booking in Model)
+{
+    <div class="card p-3 mb-3">
+
+        <h4>Booking ID: @booking.BookingId</h4>
+
+        <p>
+            <strong>Flight:</strong>
+            @booking.Flight.FlightNo
+        </p>
+
+        <p>
+            <strong>Route:</strong>
+            @booking.Flight.FromCity →
+            @booking.Flight.ToCity
+        </p>
+
+        <p>
+            <strong>Flight Date:</strong>
+            @booking.Flight.Date.ToShortDateString()
+        </p>
+
+        <h5>Passengers</h5>
+
+        @foreach (var passenger in booking.Passengers)
+        {
+            <p>
+                <strong>Name:</strong>
+                @passenger.FullName
+            </p>
+
+            <p>
+                <strong>Passport:</strong>
+                @passenger.PassportNo
+            </p>
+
+            <p>
+                <strong>Nationality:</strong>
+                @passenger.Nationality
+            </p>
+
+            <hr />
+        }
+        <p>
+            <strong>Payment:</strong>
+            @booking.Payment.Amount AED
+            (@booking.Payment.Method)
+        </p>
+
+        <p>
+            <strong>Status:</strong>
+            @booking.Status
+        </p>
+
+        <a asp-controller="Bookings" asp-action="DeleteBooking" asp-route-id="@booking.BookingId" 
+        onclick="return confirm('Are you sure you want to cancel your booking @booking.BookingId?')
+               class="btn btn-danger mt-2">Cancel Booking </a>
+    </div>
+}

@@ -1,0 +1,31 @@
+﻿@model List<AirlineBookingsProject.Models.Flight>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Manage Flights";
+}
+<h2>Manage Flights</h2>
+
+@if (Model != null)
+{
+    @foreach (var flight in Model)
+    {
+        <h3>@flight.FlightNo – @flight.FromCity → @flight.ToCity</h3>
+
+        <p>
+            Flight ID: @flight.FlightId <br />
+            Airline Flight No: @flight.FlightNo <br />
+            From: @flight.FromCity <br />
+            To: @flight.ToCity <br />
+            Date: @flight.Date.ToShortDateString() <br />
+            Time: @flight.Time <br />
+            Price: @flight.Price AED
+        </p>
+
+        <a asp-controller="Admin" asp-action="UpdateFlight" asp-route-id="@flight.FlightId">Update Flight | </a>
+        <a asp-controller="Admin" asp-action="DeleteFlight" asp-route-id="@flight.FlightId"
+           onclick="return confirm('Are you sure you want to delete flight @flight.FlightId?')">Delete Flight</a>
+        <hr />
+    }
+}

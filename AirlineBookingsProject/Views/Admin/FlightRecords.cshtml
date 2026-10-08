@@ -1,0 +1,54 @@
+﻿@model Flight
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Add New Flight";
+}
+<h2>Add New Flight</h2>
+
+<form asp-controller="Admin" asp-action="FlightRecords" method="post">
+    <div class="mb-3">
+        <label asp-for="FlightId"></label><br />
+        <input asp-for="FlightId" class="form-control" />
+        <span asp-validation-for="FlightId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FlightNo"></label><br />
+        <input asp-for="FlightNo" class="form-control" />
+        <span asp-validation-for="FlightNo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FromCity"></label><br />
+        <input asp-for="FromCity" class="form-control" />
+        <span asp-validation-for="FromCity" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ToCity"></label><br />
+        <input asp-for="ToCity" class="form-control" />
+        <span asp-validation-for="ToCity" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Date"></label><br />
+        <input asp-for="Date" type="date" class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Time"></label><br />
+        <input asp-for="Time" type="time" class="form-control" />
+        <span asp-validation-for="Time" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Price"></label><br />
+        <input asp-for="Price" type="number" step="0.01" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <input type="submit" value="Create Flight" class="btn btn-primary" />
+</form>

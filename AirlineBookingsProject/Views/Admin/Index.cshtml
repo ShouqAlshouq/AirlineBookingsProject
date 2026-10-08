@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h1>Admin Dashboard</h1>
+<hr />
+
+<h2>Bookings Status</h2>
+
+<div class="card p-3 mb-3 bg-light">
+    <p><strong>Confirmed Bookings:</strong> @ViewBag.Confirmed</p>
+    <p><strong>Pending Bookings:</strong> @ViewBag.Pending</p>
+    <p><strong>Cancelled Bookings:</strong> @ViewBag.Cancelled</p>
+</div>
+
+<hr />
+
+<h2>System Statistics</h2>
+
+<div class="card p-3 mb-3 bg-light">
+    <p><strong>Total Passengers:</strong> @ViewBag.TotalPassengers</p>
+    <p><strong>Total Flights:</strong> @ViewBag.TotalFlights</p>
+    <p><strong>Total Users:</strong> @ViewBag.TotalUsers</p>
+</div>
+
+<hr />
+
+<h3>Quick Actions</h3>
+
+<a asp-controller="Admin" asp-action="FlightRecords" class="btn btn-success">Add New Flight</a>
+<a asp-controller="Admin" asp-action="ManageFlights" class="btn btn-primary">Manage Flights</a>
+<a asp-controller="Admin" asp-action="ShowAllUsers" class="btn btn-dark">View All Users</a>

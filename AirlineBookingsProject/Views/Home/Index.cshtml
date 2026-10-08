@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    var name = User.Identity.IsAuthenticated ? User.Identity.Name : "Guest";
+}
+
+<div class="text-center mt-4">
+
+    <h1 class="display-5">Welcome, @name!</h1>
+    <p class="lead">Where would you like to fly today?</p>
+
+    <div class="mt-4">
+        <a asp-controller="Flights" asp-action="Search" class="btn btn-primary btn-lg mx-2">Search Flights</a>
+        <a asp-controller="Flights" asp-action="ShowAllFlights" class="btn btn-outline-secondary btn-lg mx-2">View All Flights</a>
+    </div>
+
+</div>

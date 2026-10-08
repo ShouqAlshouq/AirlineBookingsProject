@@ -1,0 +1,67 @@
+﻿@model User
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Profile";
+
+}
+<h2>My Profile</h2>
+
+<form method="post" asp-action="Profile">
+
+    <div class="card p-3 mb-3" style="max-width:400px;">
+
+        <img src="/images/@Model.UserPhoto" class="img-thumbnail mb-3" style="width:150px;" />
+
+        <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input asp-for="FullName" class="form-control" />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Profile Image</label>
+            <select asp-for="UserPhoto" class="form-control">
+                @foreach (var photo in ViewBag.PhotoList)
+                {
+                    <option value="@photo">@photo</option>
+                }
+            </select>
+        </div>
+
+        <input asp-for="Id" type="hidden" />
+        <input asp-for="Email" type="hidden" />
+        <input asp-for="Role" type="hidden" />
+
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </div>
+</form>
+
+<hr />
+
+<h3>My Bookings</h3>
+
+@if (ViewBag.Bookings.Count == 0)
+{
+    <p>You have no bookings yet.</p>
+}
+else
+{
+    foreach (var b in ViewBag.Bookings)
+    {
+        <div class="card p-3 mb-3">
+            <h4>@b.Flight.FlightNo — @b.Flight.FromCity → @b.Flight.ToCity</h4>
+            <p>Date: @b.Flight.Date.ToShortDateString()</p>
+            <p>Status: @b.Status</p>
+        </div>
+    }
+}
+
