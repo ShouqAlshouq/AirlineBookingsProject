@@ -426,3 +426,78 @@ FodyWeavers.xsd
 
 # Official VS Code C# Dev Kit Extension exclusion
 #*.lscache
+
+# ---------------------------------------------------------------
+# AirlineBookingsProject .gitignore
+# ASP.NET Core MVC · .NET · Visual Studio · EF Core (SQL Server LocalDB)
+# Place this file at the REPO ROOT (next to AirlineBookingsProject.slnx)
+# ---------------------------------------------------------------
+
+# --- Build output (regenerated every build; was ~86 MB in your zip) ---
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+publish/
+artifacts/
+
+# --- Visual Studio: per-user state, caches, indexes ---
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.rsuser
+*.DotSettings.user
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.vsidx
+.vscode/
+.idea/
+
+# --- Publish profiles & test output ---
+*.pubxml.user
+Properties/PublishProfiles/
+TestResults/
+[Tt]est[Rr]esult*/
+*.trx
+coverage*.xml
+
+# --- Logs & temp files ---
+*.log
+*.tmp
+*.bak
+
+# --- Local databases (LocalDB / SQL Server files) ---
+*.mdf
+*.ldf
+*.ndf
+
+# --- Secrets & local config ---
+# appsettings.json is committed: it only holds a LocalDB connection string
+# with Windows authentication (no password).
+# If you ever add a real password / API key, put it in user-secrets or an
+# environment variable instead - never in a committed file.
+secrets.json
+appsettings.*.local.json
+.env
+*.pfx
+*.pem
+
+# --- macOS / Windows junk ---
+.DS_Store
+._*
+__MACOSX/
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Course paperwork (not part of the app) ---
+*Rubric*.docx
+
+# --- Things you SHOULD commit (listed so nobody "cleans them up" by mistake) ---
+# Migrations/            -> the database history; teammates need it
+# wwwroot/               -> css, js, images and the Bootstrap/jQuery libs
+# *.csproj, *.slnx       -> the project definition
+# appsettings.json       -> shared defaults (no secrets in it today)
+# Properties/launchSettings.json
