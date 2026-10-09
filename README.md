@@ -46,7 +46,7 @@ Final project for **CIA 4103** — Team 2.
 ### 1. Clone
 
 ```bash
-git clone https://github.com/<your-username>/AirlineBookingsProject.git
+git clone https://github.com/ShouqAlshouq/AirlineBookingsProject.git
 cd AirlineBookingsProject
 ```
 
